@@ -16,8 +16,8 @@ public class Hash{
     private String return_salt;
     private String return_hash_final;
 
-    public PrototipoHash(String recebeStr) {
-        this.recebeStr = recebeStr;
+    public Hash(String recebeStr) {
+        this.receiveStr = receiveStr;
         this.salt = "";
         this.concatHashes = "";
         this.return_hash_pass= "";
@@ -31,7 +31,7 @@ public class Hash{
 
         MessageDigest messageDigest = MessageDigest.getInstance(SHA);
 
-        messageDigest.update(this.recebeStr.getBytes(), 0, this.recebeStr.length());
+        messageDigest.update(this.receiveStr.getBytes(), 0, this.receiveStr.length());
 
         this.return_hash_pass = new BigInteger(1, messageDigest.digest()).toString(16);
 
@@ -97,8 +97,8 @@ public class Hash{
 
     public static void main(String[] args) throws NoSuchAlgorithmException, NullPointerException {
 
-        PrototipoHash prototipoHash = new PrototipoHash("java-language");
-         prototipoHash.printHash();
+        Hash hash = new Hash("java-language");
+        hash.printHash();
     }
 
 }
